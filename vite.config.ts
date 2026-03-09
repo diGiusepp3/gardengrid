@@ -18,9 +18,10 @@ export default defineConfig(({mode}) => {
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),
+        'app': path.resolve(__dirname, './app'),
         'react-native': 'react-native-web',
         'expo-sqlite': path.resolve(__dirname, './src/db/mock-sqlite.ts'),
-        'expo-router': path.resolve(__dirname, './src/utils/mock-router.ts'),
+        'expo-router': path.resolve(__dirname, './src/utils/mock-router.tsx'),
       },
       extensions: ['.web.tsx', '.web.ts', '.web.jsx', '.web.js', '.tsx', '.ts', '.jsx', '.js'],
     },

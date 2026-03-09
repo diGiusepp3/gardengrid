@@ -1,56 +1,73 @@
-import { db } from './schema';
-import { Garden, Field, Row, Plant, Structure, Task } from '@/types';
+import { db } from './index';
+import * as schema from './schema';
+import { eq, and, desc } from 'drizzle-orm';
+import { Garden, Field, Task } from '@/types';
 
 export const gardenRepository = {
   getGardens: async (userId: string): Promise<Garden[]> => {
-    return await db.getAllAsync<Garden>('SELECT * FROM gardens WHERE userId = ? ORDER BY createdAt DESC', [userId]);
+    return await db.query.gardens.findMany({
+      where: eq(schema.gardens.userId, userId),
+      orderBy: [desc(schema.gardens.createdAt)],
+    }) as Garden[];
   },
   
   createGarden: async (garden: Omit<Garden, 'createdAt'>): Promise<void> => {
-    await db.runAsync(
-      'INSERT INTO gardens (id, userId, name, width, height, unit) VALUES (?, ?, ?, ?, ?, ?)',
-      [garden.id, garden.userId, garden.name, garden.width, garden.height, garden.unit]
-    );
+    await db.insert(schema.gardens).values({
+      id: garden.id,
+      userId: garden.userId,
+      name: garden.name,
+      width: garden.width,
+      height: garden.height,
+      unit: garden.unit,
+    });
   },
 
   getGardenById: async (id: string): Promise<Garden | null> => {
-    return await db.getFirstAsync<Garden>('SELECT * FROM gardens WHERE id = ?', [id]);
+    const result = await db.query.gardens.findFirst({
+      where: eq(schema.gardens.id, id),
+    });
+    return (result as Garden) || null;
   },
 
   deleteGarden: async (id: string): Promise<void> => {
-    await db.runAsync('DELETE FROM gardens WHERE id = ?', [id]);
+    await db.delete(schema.gardens).where(eq(schema.gardens.id, id));
   }
 };
 
 export const fieldRepository = {
   getFieldsByGarden: async (gardenId: string): Promise<Field[]> => {
-    return await db.getAllAsync<Field>('SELECT * FROM fields WHERE gardenId = ?', [gardenId]);
+    return await db.query.fields.findMany({
+      where: eq(schema.fields.gardenId, gardenId),
+    }) as Field[];
   },
   
   createField: async (field: Field): Promise<void> => {
-    await db.runAsync(
-      'INSERT INTO fields (id, gardenId, name, type, width, height, x, y, notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
-      [field.id, field.gardenId, field.name, field.type, field.width, field.height, field.x, field.y, field.notes]
-    );
+    await db.insert(schema.fields).values(field);
   }
 };
 
 export const taskRepository = {
   getTasks: async (userId: string): Promise<Task[]> => {
-    return await db.getAllAsync<Task>('SELECT * FROM tasks WHERE userId = ? ORDER BY date ASC', [userId]);
+    return await db.query.tasks.findMany({
+      where: eq(schema.tasks.userId, userId),
+      orderBy: [schema.tasks.date],
+    }) as Task[];
   },
   
   createTask: async (task: Task): Promise<void> => {
-    await db.runAsync(
-      'INSERT INTO tasks (id, userId, title, type, date, status, linkedEntityId, linkedEntityType, notes, reminderAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-      [task.id, task.userId, task.title, task.type, task.date, task.status, task.linkedEntityId, task.linkedEntityType, task.notes, task.reminderAt]
-    );
+    await db.insert(schema.tasks).values(task);
   },
 
   updateTask: async (task: Task): Promise<void> => {
-    await db.runAsync(
-      'UPDATE tasks SET title = ?, type = ?, date = ?, status = ?, notes = ?, reminderAt = ? WHERE id = ?',
-      [task.title, task.type, task.date, task.status, task.notes, task.reminderAt, task.id]
-    );
+    await db.update(schema.tasks)
+      .set({
+        title: task.title,
+        type: task.type,
+        date: task.date,
+        status: task.status,
+        notes: task.notes,
+        reminderAt: task.reminderAt,
+      })
+      .where(eq(schema.tasks.id, task.id));
   }
 };
