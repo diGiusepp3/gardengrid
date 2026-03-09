@@ -28,6 +28,13 @@ const resources = {
       meters: 'Meters',
       feet: 'Feet',
       centimeters: 'Centimeters',
+      createTask: 'Create Task',
+      taskTitle: 'Task Title',
+      taskType: 'Task Type',
+      date: 'Date',
+      reminder: 'Reminder',
+      notes: 'Notes',
+      saveTask: 'Save Task',
     },
   },
 };

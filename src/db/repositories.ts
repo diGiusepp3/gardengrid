@@ -42,8 +42,15 @@ export const taskRepository = {
   
   createTask: async (task: Task): Promise<void> => {
     await db.runAsync(
-      'INSERT INTO tasks (id, userId, title, type, date, status, linkedEntityId, linkedEntityType, notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
-      [task.id, task.userId, task.title, task.type, task.date, task.status, task.linkedEntityId, task.linkedEntityType, task.notes]
+      'INSERT INTO tasks (id, userId, title, type, date, status, linkedEntityId, linkedEntityType, notes, reminderAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+      [task.id, task.userId, task.title, task.type, task.date, task.status, task.linkedEntityId, task.linkedEntityType, task.notes, task.reminderAt]
+    );
+  },
+
+  updateTask: async (task: Task): Promise<void> => {
+    await db.runAsync(
+      'UPDATE tasks SET title = ?, type = ?, date = ?, status = ?, notes = ?, reminderAt = ? WHERE id = ?',
+      [task.title, task.type, task.date, task.status, task.notes, task.reminderAt, task.id]
     );
   }
 };

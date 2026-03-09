@@ -14,7 +14,7 @@ export const initDatabase = async () => {
       CREATE TABLE IF NOT EXISTS rows (id TEXT PRIMARY KEY, fieldId TEXT NOT NULL, name TEXT NOT NULL, orientation TEXT, length REAL NOT NULL, width REAL NOT NULL, notes TEXT);
       CREATE TABLE IF NOT EXISTS structures (id TEXT PRIMARY KEY, gardenId TEXT NOT NULL, name TEXT NOT NULL, type TEXT NOT NULL, width REAL NOT NULL, height REAL NOT NULL, x REAL NOT NULL, y REAL NOT NULL, notes TEXT, status TEXT DEFAULT 'active');
       CREATE TABLE IF NOT EXISTS plants (id TEXT PRIMARY KEY, gardenId TEXT NOT NULL, fieldId TEXT, rowId TEXT, structureId TEXT, name TEXT NOT NULL, category TEXT, variety TEXT, sowingDate TEXT, plantingDate TEXT, harvestDate TEXT, quantity INTEGER DEFAULT 1, notes TEXT);
-      CREATE TABLE IF NOT EXISTS tasks (id TEXT PRIMARY KEY, userId TEXT NOT NULL, title TEXT NOT NULL, type TEXT NOT NULL, date TEXT NOT NULL, status TEXT DEFAULT 'pending', linkedEntityId TEXT, linkedEntityType TEXT, notes TEXT);
+      CREATE TABLE IF NOT EXISTS tasks (id TEXT PRIMARY KEY, userId TEXT NOT NULL, title TEXT NOT NULL, type TEXT NOT NULL, date TEXT NOT NULL, status TEXT DEFAULT 'pending', linkedEntityId TEXT, linkedEntityType TEXT, notes TEXT, reminderAt TEXT);
     `);
   } else {
     console.log('Running in web mode without SQLite');

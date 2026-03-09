@@ -76,4 +76,5 @@ export interface Task {
   linkedEntityId?: string;
   linkedEntityType?: string;
   notes?: string;
+  reminderAt?: string;
 }
