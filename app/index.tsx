@@ -1,6 +1,7 @@
-import React from 'react';
 import { Redirect } from 'expo-router';
+import { useSessionStore } from '../src/state';
 
 export default function Index() {
-  return <Redirect href="/(tabs)" />;
+  const isAuthenticated = useSessionStore((state) => state.isAuthenticated);
+  return <Redirect href={isAuthenticated ? '/(tabs)' : '/(auth)/login'} />;
 }

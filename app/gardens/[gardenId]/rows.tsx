@@ -1,24 +1,20 @@
 import { ScrollView, StyleSheet, Text } from 'react-native';
-import { Card, Screen, Section, Tag } from '../../src/components';
-import { theme } from '../../src/core/theme';
+import { Card, Screen, Section } from '../../../src/components';
+import { theme } from '../../../src/core/theme';
 
-export default function TasksTab() {
+export default function RowsScreen() {
   return (
     <Screen>
       <ScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.title}>Tasks</Text>
-        <Section title="Today">
+        <Text style={styles.title}>Rows</Text>
+        <Section title="Main beds">
           <Card>
-            <Tag label="Watering" />
-            <Text style={styles.cardTitle}>Water greenhouse beds</Text>
-            <Text style={styles.cardBody}>Scheduled · 07:00</Text>
+            <Text style={styles.cardTitle}>Row 1</Text>
+            <Text style={styles.cardBody}>8m length · Leafy greens</Text>
           </Card>
-        </Section>
-        <Section title="Upcoming">
-          <Card>
-            <Tag label="Harvest" tone="accent" />
-            <Text style={styles.cardTitle}>Harvest spinach</Text>
-            <Text style={styles.cardBody}>Friday · Main Beds</Text>
+          <Card style={styles.cardSpacing}>
+            <Text style={styles.cardTitle}>Row 2</Text>
+            <Text style={styles.cardBody}>8m length · Root vegetables</Text>
           </Card>
         </Section>
       </ScrollView>
@@ -40,12 +36,14 @@ const styles = StyleSheet.create({
     fontFamily: theme.typography.fontFamily.bodyMedium,
     fontSize: theme.typography.size.md,
     color: theme.semantic.textPrimary,
-    marginTop: theme.spacing.sm,
   },
   cardBody: {
     fontFamily: theme.typography.fontFamily.body,
     fontSize: theme.typography.size.sm,
     color: theme.semantic.textSecondary,
     marginTop: theme.spacing.xs,
+  },
+  cardSpacing: {
+    marginTop: theme.spacing.md,
   },
 });

@@ -3,19 +3,19 @@ import { ScrollView, StyleSheet, Text } from 'react-native';
 import { Button, FormField, Screen } from '../../src/components';
 import { theme } from '../../src/core/theme';
 
-export default function CreateGardenScreen() {
+export default function EditPlantScreen() {
   const [name, setName] = useState('');
-  const [width, setWidth] = useState('');
-  const [height, setHeight] = useState('');
+  const [variety, setVariety] = useState('');
+  const [quantity, setQuantity] = useState('');
 
   return (
     <Screen>
       <ScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.title}>Create garden</Text>
-        <FormField label="Garden name" value={name} onChangeText={setName} />
-        <FormField label="Width (m)" value={width} onChangeText={setWidth} />
-        <FormField label="Height (m)" value={height} onChangeText={setHeight} />
-        <Button label="Save garden" onPress={() => {}} />
+        <Text style={styles.title}>Add plant</Text>
+        <FormField label="Plant name" value={name} onChangeText={setName} />
+        <FormField label="Variety" value={variety} onChangeText={setVariety} />
+        <FormField label="Quantity" value={quantity} onChangeText={setQuantity} />
+        <Button label="Save plant" onPress={() => {}} />
       </ScrollView>
     </Screen>
   );

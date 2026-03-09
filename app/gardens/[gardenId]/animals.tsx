@@ -1,24 +1,17 @@
 import { ScrollView, StyleSheet, Text } from 'react-native';
-import { Card, Screen, Section, Tag } from '../../src/components';
-import { theme } from '../../src/core/theme';
+import { Card, Screen, Section, Tag } from '../../../src/components';
+import { theme } from '../../../src/core/theme';
 
-export default function TasksTab() {
+export default function AnimalsScreen() {
   return (
     <Screen>
       <ScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.title}>Tasks</Text>
-        <Section title="Today">
+        <Text style={styles.title}>Animal zones</Text>
+        <Section title="Livestock">
           <Card>
-            <Tag label="Watering" />
-            <Text style={styles.cardTitle}>Water greenhouse beds</Text>
-            <Text style={styles.cardBody}>Scheduled · 07:00</Text>
-          </Card>
-        </Section>
-        <Section title="Upcoming">
-          <Card>
-            <Tag label="Harvest" tone="accent" />
-            <Text style={styles.cardTitle}>Harvest spinach</Text>
-            <Text style={styles.cardBody}>Friday · Main Beds</Text>
+            <Tag label="Chickens" />
+            <Text style={styles.cardTitle}>Hen run</Text>
+            <Text style={styles.cardBody}>3m x 4m · Feeding every morning</Text>
           </Card>
         </Section>
       </ScrollView>

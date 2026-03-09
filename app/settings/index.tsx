@@ -1,24 +1,16 @@
 import { ScrollView, StyleSheet, Text } from 'react-native';
-import { Card, Screen, Section, Tag } from '../../src/components';
+import { Card, Screen, Section } from '../../src/components';
 import { theme } from '../../src/core/theme';
 
-export default function TasksTab() {
+export default function SettingsScreen() {
   return (
     <Screen>
       <ScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.title}>Tasks</Text>
-        <Section title="Today">
+        <Text style={styles.title}>Settings</Text>
+        <Section title="Preferences">
           <Card>
-            <Tag label="Watering" />
-            <Text style={styles.cardTitle}>Water greenhouse beds</Text>
-            <Text style={styles.cardBody}>Scheduled · 07:00</Text>
-          </Card>
-        </Section>
-        <Section title="Upcoming">
-          <Card>
-            <Tag label="Harvest" tone="accent" />
-            <Text style={styles.cardTitle}>Harvest spinach</Text>
-            <Text style={styles.cardBody}>Friday · Main Beds</Text>
+            <Text style={styles.cardTitle}>Language</Text>
+            <Text style={styles.cardBody}>English (default)</Text>
           </Card>
         </Section>
       </ScrollView>
@@ -40,7 +32,6 @@ const styles = StyleSheet.create({
     fontFamily: theme.typography.fontFamily.bodyMedium,
     fontSize: theme.typography.size.md,
     color: theme.semantic.textPrimary,
-    marginTop: theme.spacing.sm,
   },
   cardBody: {
     fontFamily: theme.typography.fontFamily.body,
