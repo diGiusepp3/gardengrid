@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "gardengrid",
-    "slug": "gardengrid",
+    "name": "CropGrow",
+    "slug": "cropgrow",
     "version": "1.0.0",
-    "scheme": "gardengrid",
+    "scheme": "cropgrow",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -13,9 +13,12 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
+      "bundleIdentifier": "be.webcrafters.cropgrow",
       "supportsTablet": true
     },
     "android": {
+      "package": "be.webcrafters.cropgrow",
+      "versionCode": 1,
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/android-icon-foreground.png",
@@ -24,13 +27,27 @@
       }
     },
     "plugins": [
-      "expo-router"
+      [
+        "expo-router",
+        {
+          "root": "./app"
+        }
+      ],
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "router": {
+        "root": "./app"
+      },
+      "eas": {
+        "projectId": "667c21b4-3d83-49ad-bba7-e184876b3db4"
+      }
     }
   }
 }

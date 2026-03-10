@@ -1,0 +1,68 @@
+{
+  "app": {
+    "name": "CropGrow",
+    "tagline": "Plan, grow, and manage your whole garden."
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "add": "Add",
+    "create": "Create",
+    "close": "Close",
+    "next": "Next",
+    "back": "Back"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "gardens": "Gardens",
+    "tasks": "Tasks",
+    "settings": "Settings",
+    "profile": "Profile",
+    "plants": "Plants"
+  },
+  "auth": {
+    "welcomeTitle": "Welcome to CropGrow",
+    "welcomeBody": "Design, organize, and manage a complete vegetable garden ecosystem.",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "emailPlaceholder": "Enter your email",
+    "passwordPlaceholder": "Enter your password",
+    "signIn": "Sign in",
+    "invalidCredentials": "Incorrect email or password."
+  },
+  "dashboard": {
+    "title": "Overview",
+    "subtitle": "Your garden at a glance"
+  },
+  "gardens": {
+    "title": "Gardens",
+    "createTitle": "Create garden",
+    "empty": "No gardens yet. Create your first garden.",
+    "detailsTitle": "Garden layout"
+  },
+  "fields": {
+    "title": "Fields",
+    "rows": "Rows"
+  },
+  "plants": {
+    "title": "Plants",
+    "addTitle": "Add plant"
+  },
+  "structures": {
+    "title": "Structures"
+  },
+  "animals": {
+    "title": "Animal zones"
+  },
+  "tasks": {
+    "title": "Tasks",
+    "upcoming": "Upcoming"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "units": "Units"
+  }
+}

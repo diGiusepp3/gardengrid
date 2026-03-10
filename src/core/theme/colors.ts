@@ -1,0 +1,31 @@
+export const colors = {
+  forest: '#1C3B2E',
+  moss: '#2E5E46',
+  leaf: '#5E8C61',
+  sage: '#9BBF9A',
+  soil: '#7B5B3E',
+  clay: '#B28B6B',
+  sun: '#F2C94C',
+  sky: '#CDE9F4',
+  stone: '#E6E2D8',
+  mist: '#F6F7F3',
+  ink: '#1C1F1D',
+  white: '#FFFFFF',
+  danger: '#D64545',
+  warning: '#E5A534',
+  success: '#3C8D5A',
+};
+
+export const semantic = {
+  background: colors.mist,
+  surface: colors.white,
+  surfaceMuted: colors.stone,
+  textPrimary: colors.ink,
+  textSecondary: '#3C4A45',
+  border: '#D8D2C5',
+  primary: colors.moss,
+  primarySoft: '#DCE9DC',
+  accent: colors.sun,
+  accentSoft: '#FFF3C7',
+  danger: colors.danger,
+};
